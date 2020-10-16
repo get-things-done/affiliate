@@ -2,9 +2,9 @@
 
 namespace GetThingsDone\Affiliate\Tests;
 
-use Orchestra\Testbench\TestCase as Orchestra;
 use GetThingsDone\Affiliate\AffiliateServiceProvider;
 use Illuminate\Database\Eloquent\Factories\Factory;
+use Orchestra\Testbench\TestCase as Orchestra;
 
 class TestCase extends Orchestra
 {
@@ -33,9 +33,8 @@ class TestCase extends Orchestra
             'prefix' => '',
         ]);
 
-        /*
+        
         include_once __DIR__.'/../database/migrations/create_affiliate_table.php.stub';
-        (new \CreatePackageTable())->up();
-        */
+        (new \CreateAffiliateTable())->up();
     }
 }

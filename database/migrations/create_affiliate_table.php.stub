@@ -8,17 +8,24 @@ class CreateAffiliateTable extends Migration
 {
     public function up()
     {
-        Schema::create('affiliate_table', function (Blueprint $table) {
+        Schema::create('invite_codes', function (Blueprint $table){
             $table->id();
+            $table->bigInteger('user_id');
+            $table->string('code')->unique();
+            $table->timestamps();
+        });
 
-            // add fields
-
+        Schema::create('referrals', function (Blueprint $table) {
+            $table->id();
+            $table->bigInteger('user_id');
+            $table->bigInteger('referrer_id');
             $table->timestamps();
         });
     }
 
     public function down()
     {
-        Schema::dropIfExists('affiliate_table');
+        Schema::dropIfExists('referrals');
+        Schema::dropIfExists('referrer_codes');
     }
-}
+}           
