@@ -6,12 +6,12 @@ use Illuminate\Database\Eloquent\Model;
 class Referral extends Model
 {
     protected $fillable = [
-        'referrer_id','user_id'
+        'referrer_id','user_id',
     ];
 
     public function invite_code(string $inviteCode)
     {
-        $this->referrer_id = InviteCode::findByCode( $inviteCode )->user_id;
+        $this->referrer_id = InviteCode::findByCode($inviteCode)->user_id;
 
         return $this;
     }

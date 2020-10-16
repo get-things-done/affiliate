@@ -2,8 +2,8 @@
 
 namespace GetThingsDone\Affiliate;
 
-use GetThingsDone\Affiliate\Models\Referral;
 use GetThingsDone\Affiliate\Models\InviteCode;
+use GetThingsDone\Affiliate\Models\Referral;
 
 class Affiliate
 {
@@ -27,18 +27,16 @@ class Affiliate
 
     public function getReferral($user_id): ?Referral
     {
-
         $referral = Referral::findByUserId($user_id);
 
-        if( !$referral && session()->has('invite_code') )
-        {
+        if (! $referral && session()->has('invite_code')) {
             $referral = (new Referral)
-                            ->invite_code( session()->get('invite_code') )
+                            ->invite_code(session()->get('invite_code'))
                             ->user_id($user_id);
             $referral->save();
         }
 
 
         return $referral;
-    } 
+    }
 }

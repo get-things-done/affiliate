@@ -2,8 +2,8 @@
 
 namespace GetThingsDone\Affiliate;
 
-use Illuminate\Support\ServiceProvider;
 use GetThingsDone\Affiliate\Commands\AffiliateCommand;
+use Illuminate\Support\ServiceProvider;
 
 class AffiliateServiceProvider extends ServiceProvider
 {

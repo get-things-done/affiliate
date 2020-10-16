@@ -1,7 +1,6 @@
 <?php
 namespace GetThingsDone\Affiliate\Tests;
 
-use GetThingsDone\Affiliate\Tests\TestCase;
 use GetThingsDone\Affiliate\AffiliateFacade;
 use GetThingsDone\Affiliate\Models\Referral;
 
@@ -39,13 +38,13 @@ class InviteUrlTest extends TestCase
         $inviteCode = AffiliateFacade::getInviteCode(1);
 
         session([
-            'invite_code' => (string) $inviteCode
+            'invite_code' => (string) $inviteCode,
         ]);
         
         $referral = AffiliateFacade::getReferral(2);
 
         $this->assertInstanceOf(Referral::class, $referral);
-        $this->assertEquals(1,$referral->referrer_id);
+        $this->assertEquals(1, $referral->referrer_id);
     }
 
     /** @test */
@@ -61,7 +60,6 @@ class InviteUrlTest extends TestCase
         $referral = AffiliateFacade::getReferral(2);
         
         $this->assertInstanceOf(Referral::class, $referral);
-        $this->assertEquals(1,$referral->referrer_id);
-        
+        $this->assertEquals(1, $referral->referrer_id);
     }
 }

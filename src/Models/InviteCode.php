@@ -22,7 +22,7 @@ class InviteCode extends Model
     public static function createByUserId($user_id): self
     {
         do {
-            $code = strtoupper( uniqid() );
+            $code = strtoupper(uniqid());
             usleep(1000);
         } while (self::where('code', $code)->exists());
 
