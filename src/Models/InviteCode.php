@@ -14,6 +14,11 @@ class InviteCode extends Model
         return self::where('user_id', $user_id)->first();
     }
 
+    public static function findByCode(string $code): ?self
+    {
+        return self::where('code', $code)->first();
+    }
+
     public static function createByUserId($user_id): self
     {
         do {

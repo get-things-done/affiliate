@@ -11,6 +11,6 @@ class AffiliateFacade extends Facade
 {
     protected static function getFacadeAccessor()
     {
-        return 'affiliate';
+        return Affiliate::class;
     }
 }

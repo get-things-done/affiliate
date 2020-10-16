@@ -17,7 +17,7 @@ class CreateAffiliateTable extends Migration
 
         Schema::create('referrals', function (Blueprint $table) {
             $table->id();
-            $table->bigInteger('user_id');
+            $table->bigInteger('user_id')->unique();
             $table->bigInteger('referrer_id');
             $table->timestamps();
         });
@@ -26,6 +26,6 @@ class CreateAffiliateTable extends Migration
     public function down()
     {
         Schema::dropIfExists('referrals');
-        Schema::dropIfExists('referrer_codes');
+        Schema::dropIfExists('invite_codes');
     }
 }           

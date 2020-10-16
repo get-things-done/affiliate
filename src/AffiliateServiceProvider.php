@@ -2,8 +2,8 @@
 
 namespace GetThingsDone\Affiliate;
 
-use GetThingsDone\Affiliate\Commands\AffiliateCommand;
 use Illuminate\Support\ServiceProvider;
+use GetThingsDone\Affiliate\Commands\AffiliateCommand;
 
 class AffiliateServiceProvider extends ServiceProvider
 {
@@ -31,6 +31,7 @@ class AffiliateServiceProvider extends ServiceProvider
         }
 
         $this->loadViewsFrom(__DIR__ . '/../resources/views', 'affiliate');
+        $this->loadRoutesFrom(__DIR__.'/routes.php');
     }
 
     public function register()
