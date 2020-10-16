@@ -2,8 +2,8 @@
 
 namespace GetThingsDone\Affiliate;
 
-use GetThingsDone\Affiliate\Models\Referral;
 use GetThingsDone\Affiliate\Models\InviteCode;
+use GetThingsDone\Affiliate\Models\Referral;
 
 class Affiliate
 {
