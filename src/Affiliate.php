@@ -2,8 +2,8 @@
 
 namespace GetThingsDone\Affiliate;
 
-use GetThingsDone\Affiliate\Models\InviteCode;
 use GetThingsDone\Affiliate\Models\Referral;
+use GetThingsDone\Affiliate\Models\InviteCode;
 
 class Affiliate
 {
@@ -18,7 +18,7 @@ class Affiliate
         return $inviteCode;
     }
 
-    public function getInviteUrl($user_id): string
+    public function getInviteUrl($user_id)
     {
         $inviteCode = $this->getInviteCode($user_id);
 
