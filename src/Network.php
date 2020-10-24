@@ -3,7 +3,7 @@ namespace GetThingsDone\Affiliate;
 
 use GetThingsDone\Affiliate\Models\Referral;
 
-class Network 
+class Network
 {
     protected $user_id;
     
@@ -26,12 +26,10 @@ class Network
         $referrals = Referral::get();
         
         $data = [];
-        for( $level = 1; $level <= $this->maxLevel; $level++)
-        {
-            $data[$level] = $referrals->whereIn('referrer_id', $user_ids ?? [$this->user_id] );
+        for ($level = 1; $level <= $this->maxLevel; $level++) {
+            $data[$level] = $referrals->whereIn('referrer_id', $user_ids ?? [$this->user_id]);
 
-            if( $data[$level]->isEmpty() )
-            {
+            if ($data[$level]->isEmpty()) {
                 break;
             }
             
