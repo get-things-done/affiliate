@@ -24,7 +24,7 @@ class InviteCodeTest extends TestCase
     /** @test */
     public function get_user_invite_code_when_have_no_code()
     {
-        $code = app(Affiliate::class)->getInviteCode(1);
+        $code = Affiliate::getInviteCode(1);
 
         $this->assertEquals(13, strlen($code));
     }

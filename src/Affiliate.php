@@ -7,7 +7,7 @@ use GetThingsDone\Affiliate\Models\Referral;
 
 class Affiliate
 {
-    public function getInviteCode($user_id): InviteCode
+    public static function getInviteCode($user_id): InviteCode
     {
         $inviteCode = InviteCode::findByUserId($user_id);
 
@@ -18,14 +18,14 @@ class Affiliate
         return $inviteCode;
     }
 
-    public function getInviteUrl($user_id)
+    public static function getInviteUrl($user_id)
     {
-        $inviteCode = $this->getInviteCode($user_id);
+        $inviteCode = self::getInviteCode($user_id);
 
         return url("/r/$inviteCode");
     }
 
-    public function getReferral($user_id): ?Referral
+    public static function getReferral($user_id): ?Referral
     {
         $referral = Referral::findByUserId($user_id);
 
@@ -38,5 +38,10 @@ class Affiliate
 
 
         return $referral;
+    }
+
+    public static function getNetwork($user_id, $maxLevel = 2): Network
+    {
+        return Network::of($user_id)->maxLevel($maxLevel)->build();
     }
 }
