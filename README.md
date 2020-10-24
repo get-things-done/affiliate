@@ -45,7 +45,8 @@ $inviteUrl = \GetThingsDone\Affiliate\Affiliate::getInviteUrl($user->id);
 $referral = \GetThingsDone\Affiliate\Affiliate::getReferral($user->id);
 
 //Get user's network
-$network = \GetThingsDone\Affiliate\Affiliate::getNetwork($user->id);
+$network = \GetThingsDone\Affiliate\Affiliate::getNetwork($user->id,$maxLevel = 2);
+$networkAllLevel = $network->get();
 $networkLevel1 = $network->getByLevel(1);
 ```
 
