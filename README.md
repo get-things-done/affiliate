@@ -38,8 +38,15 @@ return [
 ## Usage
 
 ``` php
-$affiliate = new GetThingsDone\Affiliate();
-echo $affiliate->echoPhrase('Hello, GetThingsDone!');
+//Get invite url 
+$inviteUrl = \GetThingsDone\Affiliate\Affiliate::getInviteUrl($user->id);
+
+//Get user's referral
+$referral = \GetThingsDone\Affiliate\Affiliate::getReferral($user->id);
+
+//Get user's network
+$network = \GetThingsDone\Affiliate\Affiliate::getNetwork($user->id);
+$networkLevel1 = $network->getByLevel(1);
 ```
 
 ## Testing
