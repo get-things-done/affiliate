@@ -10,15 +10,39 @@ class CreateAffiliateTable extends Migration
     {
         Schema::create('invite_codes', function (Blueprint $table){
             $table->id();
-            $table->bigInteger('user_id');
+            switch(config('affiliate.user_type'))
+            {
+                case 'integer':
+                    $table->bigInteger('user_id');
+                    break;
+                case 'uuid':
+                    $table->uuid('user_id');
+                    break;
+                default:
+                    $table->bigInteger('user_id');
+            }
+                
             $table->string('code')->unique();
             $table->timestamps();
         });
 
         Schema::create('referrals', function (Blueprint $table) {
             $table->id();
-            $table->bigInteger('user_id')->unique();
-            $table->bigInteger('referrer_id');
+
+            switch(config('affiliate.user_type'))
+            {
+                case 'integer':
+                    $table->bigInteger('user_id')->unique();
+                    $table->bigInteger('referrer_id');
+                    break;
+                case 'uuid':
+                    $table->uuid('user_id')->unique();
+                    $table->uuid('referrer_id');
+                    break;
+                default:
+                    $table->bigInteger('user_id')->unique();
+                    $table->bigInteger('referrer_id');
+            }
             $table->timestamps();
         });
     }

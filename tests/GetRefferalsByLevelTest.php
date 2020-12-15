@@ -14,32 +14,32 @@ class GetRefferalsByLevelTest extends TestCase
     {
         Referral::insert([
             [
-                'referrer_id' => 1,
-                'user_id' => 2,
+                'referrer_id' => $this->getUserId(1),
+                'user_id' => $this->getUserId(2),
             ],
             [
-                'referrer_id' => 1,
-                'user_id' => 3,
+                'referrer_id' => $this->getUserId(1),
+                'user_id' => $this->getUserId(3),
             ],
             [
-                'referrer_id' => 2,
-                'user_id' => 4,
+                'referrer_id' => $this->getUserId(2),
+                'user_id' => $this->getUserId(4),
             ],
             [
-                'referrer_id' => 2,
-                'user_id' => 5,
+                'referrer_id' => $this->getUserId(2),
+                'user_id' => $this->getUserId(5),
             ],
             [
-                'referrer_id' => 3,
-                'user_id' => 6,
+                'referrer_id' => $this->getUserId(3),
+                'user_id' => $this->getUserId(6),
             ],
             [
-                'referrer_id' => 3,
-                'user_id' => 7,
+                'referrer_id' => $this->getUserId(3),
+                'user_id' => $this->getUserId(7),
             ],
         ]);
         
-        $network = Affiliate::getNetwork(1);
+        $network = Affiliate::getNetwork($this->getUserId(1));
 
         $this->assertEquals(2, $network->getByLevel(1)->count());
         $this->assertEquals(4, $network->getByLevel(2)->count());
