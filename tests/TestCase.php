@@ -41,6 +41,7 @@ class TestCase extends Orchestra
     protected function getUserId($id)
     {
         $type = config('affiliate.user_type') ?? 'integer';
+
         return [
             'integer' => [
                 1 => 1,
